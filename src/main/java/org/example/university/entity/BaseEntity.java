@@ -9,9 +9,9 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@MappedSuperclass                                              //ما نمیخوایم این ی جدول تو دیتا بیس ما باشه بلکه میخوایم کلاس پدر باشه
-public class BaseEntity {                                           //چیزایی که توی همه ی انتیتی ها مشترکه میزاریم اینجا
+@MappedSuperclass
+public class BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)              //میخایم ای دی ما بطور خودکار افزایش پیدا کنه
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }

@@ -14,26 +14,26 @@ import java.util.Set;
 @Entity
 public class Course extends BaseEntity {
 
-    @Column(unique = true, nullable = false)                        //یونیک هست و قابلیت خلی بودن ندارد
+    @Column(unique = true, nullable = false)
     private int code;
 
     @Column(nullable = false)
-    private String title;                                             //عنوان
+    private String title;
 
     @Column(nullable = false)
-    private int units;                                                //واحدها
+    private int units;
 
     @ManyToOne
-    @JoinColumn(name = "professor_id")                             // هر درس میتونه یک پروفسور داشته باشه و هر پروفسور چند درس
-    private Professor professor;                                    // professor_id ما توجدول کورس ی ستون داریم که قراره آی دی پروفسور رو نگهداری کنه و اسمش
+    @JoinColumn(name = "professor_id")
+    private Professor professor;
 
     @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(                                                              //وقتی چند به چند داریم جدول واسط باید درست کنیم
-            name = "Course_Student",                                        //نام جدول واسط
-            joinColumns = {@JoinColumn(name = "course_id")},                 //نام ستونی که آی دی کورس رونگهداری میکنه
-            inverseJoinColumns = {@JoinColumn (name = "student_id")}         //برای استیودنت هم استیودنت آی دی باشه
+    @JoinTable(
+            name = "Course_Student",
+            joinColumns = {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn (name = "student_id")}
     )
-    private Set<Student> students = new HashSet<>();         //دانشجو مها نمیتونن تکراری باشن پس بهتره از ست استفاده کنیم
+    private Set<Student> students = new HashSet<>();
 
 
 }

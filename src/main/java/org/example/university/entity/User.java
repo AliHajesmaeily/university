@@ -20,14 +20,14 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private String family;
 
-    @Column(unique = true,nullable = true)                                // قابل آپدیت شدن نیست
+    @Column(unique = true,nullable = true)
     private long nationalCod;
 
-    @Enumerated(EnumType.STRING)                                           //شیوه ی ذخیره سازی استیرینگ
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Gender gender;
 
-    @Temporal(TemporalType.TIMESTAMP)                                      // زمان نقش بستن
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
     private Date birthDay;
 
